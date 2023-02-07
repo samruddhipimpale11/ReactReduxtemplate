@@ -1,2 +1,2 @@
-import Counter from '../components/container'
-export default Counter
+import MovieList from '../components/container'
+export default MovieList

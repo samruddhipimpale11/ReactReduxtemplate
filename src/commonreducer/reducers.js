@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
 
-import CounterReducer from '../reducers/counter';
+import MovieReducer from '../reducers/MovieReducer'
 
 const reducers = {
-  samm: CounterReducer,
+  
+  starwarmovie:MovieReducer
 
 };
 

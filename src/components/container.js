@@ -1,25 +1,30 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Counter from './Counter'
-import { increment, decrement } from '../actions/action'
+import MovieList from './MovieList'
+import { fetchMovies, selectMovie ,searchMovies} from '../actions/action'
 
 
 const mapStateToProps = (state) => {
   return {
-    count: state.samm.count
+    movies: state.starwarmovie.movies,
+    //isLoading: state.starwarmovie.isLoading,
+    //error: state.starwarmovie.error
   }
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    onIncrement: () => {
-      dispatch(increment())
+    fetchMovies: () => {
+      dispatch(fetchMovies())
     },
-    onDecrement: () => {
-      dispatch(decrement())
-    }
+    selectMovie: () => {
+      dispatch(selectMovie())
+    },
+    searchMovies: () => {
+        dispatch(searchMovies())
+      }
   }
 }
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Counter)
+)(MovieList)
