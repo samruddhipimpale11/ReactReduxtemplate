@@ -35,12 +35,14 @@ const MovieList = ({ movies,selectedMovie, isLoading, error, fetchMovies, select
   const sortMovies = (sortBy) => {
     setSortBy(sortBy);
     setMovies([...movies].sort((a, b) => {
-      if (sortBy === 'release_date') {
-        return movies.sort((a, b) => a.release_date - b.release_date)
-      }
+      if (sortBy === 'release_date') {      
+        return movies.sort((a, b) => new Date(a.release_date) - new Date(b.release_date))
+       
+      }     
       return movies.sort((a, b) => a.episode_id - b.episode_id);
     }));
   };
+
 
 
   return (
@@ -62,8 +64,8 @@ const MovieList = ({ movies,selectedMovie, isLoading, error, fetchMovies, select
     <button  class="btn btn-warning dropdown-toggle Sort_Button " type="button" data-toggle="dropdown">Sort By
     <span class="caret"></span></button>
     <ul class="dropdown-menu">
-      <li onClick={() => sortMovies('title')}><a >Episode_ID</a></li>
-      <li onClick={() => sortMovies('episode_id')}><a >year</a></li>
+      <li onClick={() => sortMovies('episode_id')}><a >Episode_ID</a></li>
+      <li onClick={() => sortMovies('release_date')}><a >year</a></li>
       
     
     </ul>
